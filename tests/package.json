@@ -1,0 +1,1 @@
+{ "name": "kho-tests", "private": true, "scripts": { "test": "node sim.js" }, "dependencies": { "jsdom": "^24.0.0" } }

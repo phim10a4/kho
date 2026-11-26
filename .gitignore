@@ -1,0 +1,5 @@
+node_modules/
+.clasp.json
+apps-script/.clasp.json
+*.xlsx
+.DS_Store
