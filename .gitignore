@@ -3,3 +3,10 @@ node_modules/
 apps-script/.clasp.json
 *.xlsx
 .DS_Store
+
+# Script cũ trong project Apps Script (có ID Google Drive) – chỉ giữ trên máy, lấy bằng clasp pull
+apps-script/KetchuyenTonkho.gs
+apps-script/TaoIDNhapXuat.gs
+apps-script/CapnhatTonkho.gs
+apps-script/InNhanDan.gs
+apps-script/PrintDialog.html

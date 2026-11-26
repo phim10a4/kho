@@ -41,7 +41,7 @@ Kiểm kê, chuyển kho: chưa làm (ít dùng, làm sau nếu cần).
 | `design/` | 3 phương án giao diện đã đưa Hoàng chọn (đã chọn **A – Thương hiệu xanh**), logo |
 | `tests/` | Giả lập app bằng jsdom (không cần mạng) |
 
-Project Apps Script còn **các file cũ không thuộc app** (KetchuyenTonkho.gs, TaoIDNhapXuat.gs, CapnhatTonkho.gs, InNhanDan.gs, PrintDialog.html, appsscript.json) – chưa có trong repo. Xem mục 8 trước khi dùng clasp.
+Project Apps Script còn **các file cũ không thuộc app** (KetchuyenTonkho.gs, TaoIDNhapXuat.gs, CapnhatTonkho.gs, InNhanDan.gs, PrintDialog.html) – **không đưa lên repo** (chứa ID Google Drive, đã .gitignore), chỉ có trên máy qua clasp; `appsscript.json` thì có trong repo. Xem mục 8 trước khi dùng clasp.
 
 ## 5. Google Sheet "QUẢN LÝ KHO" (locale **vi_VN**)
 | Sheet | App dùng thế nào |
@@ -86,6 +86,9 @@ Project Apps Script còn **các file cũ không thuộc app** (KetchuyenTonkho.g
 - **LẦN ĐẦU – BẮT BUỘC `clasp pull` trước:** `clasp push` sẽ **xoá trên server mọi file không có ở máy** (các script cũ của Hoàng!). Quy trình:
   1. `cd apps-script && clasp clone <SCRIPT_ID> --rootDir .` (Script ID lấy trong Apps Script → Cài đặt dự án; **không commit `.clasp.json` lên repo public** – đã có trong .gitignore).
   2. Kiểm tra thư mục đã có đủ: KetchuyenTonkho.gs, TaoIDNhapXuat.gs, CapnhatTonkho.gs, InNhanDan.gs, PrintDialog.html, appsscript.json, KhoApp.gs, KhoAppUI.html. So `KhoApp.gs` với bản trong repo.
+- **Đã làm trên máy Windows (26/11/2026):** Node v26 + clasp 3.4.1, đã login, Apps Script API đã bật. Bản trên server lúc đó trùng khớp repo.
+  - clasp 3 mặc định kéo về đuôi `.js` → `apps-script/.clasp.json` đặt `scriptExtensions: [".gs", ".js"]` để giữ đuôi `.gs`. **Đừng để cùng lúc `X.gs` và `X.js`** (push sẽ báo trùng).
+  - 5 file script cũ chứa ID Google Drive → nằm trong `.gitignore`, chỉ có trên máy. **Đổi máy mới:** clone repo → làm lại bước 1 vào thư mục nháp, chép 5 file cũ + `.clasp.json` (sửa `scriptExtensions` như trên) vào `apps-script/`, rồi `clasp show-file-status` phải thấy đủ 8 file mới được push.
 - Phát hành: `clasp push` → `clasp deploy -i AKfycbyjAKzg8t_4_2D_jHlin4Ywbt0KBjnqOG-7WGBj6qN3HdtPbDWP2ZvjYaWKm2oB5-QuEg -d "mô tả"` (giữ nguyên deployment ID).
 - Hàm tiện ích: `khoXoaBoNhoTam()` – xoá cache CAI_DAT/danh mục để app thấy thay đổi ngay.
 
